@@ -34,9 +34,9 @@ This project contains my setup and a Docker-based sandbox for testing everything
 
 Create a new repo (let's call it `mydotfile-setup`) via the Github UI. Then:
 ```sh
-git clone --bare https://github.com/megamegax/dotfile-setup.git
+git clone --bare git@github.com:megamegax/dotfile-setup.git
 cd public-repo.git
-git push --mirror https://github.com/yourname/mydotfile-setup.git
+git push --mirror git@github.com:yourname/mydotfile-setup.git
 cd ..
 rm -rf public-repo.git
 ```
