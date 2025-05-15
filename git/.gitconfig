@@ -1,0 +1,5 @@
+[user]
+	name = your_name
+	email = your_name@email.com
+[core]
+	autocrlf = input
