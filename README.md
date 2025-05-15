@@ -42,18 +42,18 @@ rm -rf public-repo.git
 ```
 Clone the private repo so you can work on it:
 ```sh
-git clone https://github.com/yourname/mydotfile-setup.git
+git clone git@github.com:yourname/mydotfile-setup.git
 cd mydotfile-setup
 make some changes
 git commit
-git push origin master
+git push origin main
 ```
 To pull new hotness from the public repo:
 ```sh
 cd private-repo
-git remote add public https://github.com/megamegax/dotfile-setup.git
-git pull public master # Creates a merge commit
-git push origin master
+git remote add public git@github.com:megamegax/dotfile-setup.git
+git pull public main # Creates a merge commit
+git push origin main
 ```
 Awesome, your private repo now has the latest code from the public repo plus your changes.
 
