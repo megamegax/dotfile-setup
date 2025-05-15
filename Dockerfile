@@ -14,7 +14,7 @@ COPY . .
 RUN ls -l
 
 # Make the brew-install.sh script executable
-RUN chmod +x brew-install.sh setup.sh
+RUN chmod +x setup/brew-install.sh setup.sh
 
 # Start bash
 CMD ["bash"]

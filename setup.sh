@@ -4,9 +4,9 @@
 source ./setup/helpers.sh
 
 #======================Run setup scripts===============  
-./brew-install.sh # install brew and apps
+./setup/brew-install.sh # install brew and apps
 setup-stow
 setup-jvm
 setup-oh-my-zsh
-./mac-settings.sh # optional
+./setup/mac-settings.sh # optional
 set-background # optional

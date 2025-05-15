@@ -49,7 +49,8 @@ prompt_install() {
 # Main installation flow
 main() {
     install_brew
-
+    brew tap sdkman/tap
+    brew update
     if prompt_install "applications"; then
         install_from_file "$APPS_FILE" "brew install --cask"
     fi
