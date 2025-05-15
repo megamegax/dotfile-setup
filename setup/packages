@@ -2,6 +2,7 @@ bat          # Better cat command
 git
 stow
 tree
+openssl@3
 flutter
 sdkman-cli
 google-cloud-sdk

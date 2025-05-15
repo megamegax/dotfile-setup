@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 
 # File paths (relative to script location)
-APPS_FILE="applications"
-PKGS_FILE="packages"
-FONTS_FILE="fonts"
+APPS_FILE="./setup/applications"
+PKGS_FILE="./setup/packages"
+FONTS_FILE="./setup/fonts"
 
 # Install Homebrew if missing
 install_brew() {
     if ! command -v brew &> /dev/null; then
         echo "🍺 Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        brew tap sdkman/tap
-        brew update
+        (echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> /$HOME/.zprofile
+        eval "$(/usr/local/bin/brew shellenv)"
+        # For testing in container
+        echo >> /root/.bashrc
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.bashrc
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     else
         echo "✅ Homebrew already installed"
     fi
