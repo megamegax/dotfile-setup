@@ -10,3 +10,4 @@ setup-jvm
 setup-oh-my-zsh
 ./setup/mac-settings.sh # optional
 set-background # optional
+zsh

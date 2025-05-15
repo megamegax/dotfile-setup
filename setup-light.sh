@@ -4,7 +4,7 @@
 source ./setup/helpers.sh
 
 #======================Run setup scripts===============  
-./setup/brew-install.sh # install brew and apps
+./setup/brew-install.sh # todo: install only packages
 setup-stow
 setup-jvm
 setup-oh-my-zsh

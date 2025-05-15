@@ -1,5 +1,5 @@
 setup-stow() {
-          (echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> /$HOME/.zprofile
+          (echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> $HOME/.zprofile
         eval "$(/usr/local/bin/brew shellenv)"
         # For testing in container
         echo >> /root/.bashrc
@@ -27,12 +27,15 @@ fi
 }
 
 setup-jvm() {
-          (echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> /$HOME/.zprofile
+          (echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> $HOME/.zprofile
         eval "$(/usr/local/bin/brew shellenv)"
         # For testing in container
         echo >> /root/.bashrc
         echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.bashrc
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+ export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
 # Check if Java is present, install if it's missing
   if test ! $(which java); then
     echo "Installing JVM 21..." 
