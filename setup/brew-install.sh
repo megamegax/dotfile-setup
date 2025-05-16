@@ -94,11 +94,11 @@ setup-stow() {
     echo "Installing GNU Stow"
     brew install stow
     echo "🐐 Stowing dotfiles..."
-   stow -v --dir=$HOME/dotfiles/configs --target=$HOME zsh git ssh
+   stow -v --dir=$SCRIPT_DIR/configs --target=$HOME zsh git ssh
    echo "🚀 Stow complete!"
   else
    echo "🐐 Stowing dotfiles..."
-   stow -v --dir=$HOME/dotfiles/configs --target=$HOME zsh git ssh
+   stow -v --dir=$SCRIPT_DIR/configs --target=$HOME zsh git ssh
    echo "🚀 Stow complete!"
   fi
 }
