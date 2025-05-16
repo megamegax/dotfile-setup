@@ -9,11 +9,15 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export NVM_DIR="$HOME/.nvm"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export GRAALVM_HOME=$HOME/.sdkman/candidates/java/21.0.2-graalce
+export WORK=$HOME/development/work
+export HOBBY=$HOME/development/hobby
 
 alias ddd='rm -rf $HOME/Library/Developer/Xcode/DerivedData && echo DerivedData deleted'
 alias fluttergen='dart run build_runner build --delete-conflicting-outputs'
 alias flutterwatch='dart run build_runner watch'
 alias ssl='/opt/homebrew/opt/openssl@3/bin/openssl'
+alias work='cd $WORK'
+alias hobby='cd $HOBBY'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
