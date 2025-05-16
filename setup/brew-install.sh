@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # File paths (relative to script location)
-APPS_FILE="./setup/applications"
-PKGS_FILE="./setup/packages"
-FONTS_FILE="./setup/fonts"
+APPS_FILE="$SCRIPT_DIR/setup/applications"
+PKGS_FILE="$SCRIPT_DIR/setup/packages"
+FONTS_FILE="$SCRIPT_DIR/setup/fonts"
 
 # Install Homebrew if missing
 install_brew() {
