@@ -3,7 +3,5 @@ stow
 tree
 zip
 openssl@3
-flutter
 sdkman-cli
-google-cloud-sdk
 kotlin

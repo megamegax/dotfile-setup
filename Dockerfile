@@ -14,7 +14,7 @@ COPY . .
 RUN ls -l
 
 # Make the brew-install.sh script executable
-RUN chmod +x setup/brew-install.sh setup/mac-settings.sh setup/helpers.sh setup.sh
+RUN chmod +x setup/brew-install.sh setup/mac-settings.sh setup/helpers.sh setup.sh setup/apt-install.sh setup/create-default-folders.sh
 
 # Start bash
 CMD ["bash"]

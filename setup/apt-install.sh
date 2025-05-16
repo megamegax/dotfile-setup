@@ -55,6 +55,7 @@ main() {
     install_brew
     brew tap sdkman/tap
     brew update
+    setup-stow
     if prompt_install "applications"; then
         install_from_file "$APPS_FILE" "brew install --cask"
     fi
@@ -67,7 +68,6 @@ main() {
         install_from_file "$FONTS_FILE" "brew install --cask"
     fi
 
-    setup-stow
     setup-jvm
     setup-oh-my-zsh
     

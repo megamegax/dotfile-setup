@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-# Source the helpers file to get access to the functions
-source ./setup/helpers.sh
+# Get the directory of this script, so all paths work regardless of where you run it from
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+echo "Script directory: $SCRIPT_DIR"
 
 #======================Run setup scripts===============  
-./setup/brew-install.sh # todo: install only packages
-setup-stow
-setup-jvm
-setup-oh-my-zsh
-./setup/mac-settings.sh # optional
-set-background # optional
+"$SCRIPT_DIR/setup/apt-install.sh" # install brew and apps
+"$SCRIPT_DIR/setup/create-default-folders.sh"
+
+zsh

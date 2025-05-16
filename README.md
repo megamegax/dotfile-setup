@@ -28,7 +28,7 @@ This project contains my setup and a Docker-based sandbox for testing everything
 - `applications.txt`, `packages.txt`, `fonts.txt` – Editable lists of what to install.
 - `mac-settings.sh` – Script for Mac-specific system tweaks.
 - `Dockerfile` – For building a containerized test environment.
-- `dotfiles/` – Subdirectories for each set of configuration files (e.g., `zsh/`, `git/`).
+- `configs/` – Subdirectories for each set of configuration files (e.g., `zsh/`, `git/`, `ssh/`).
 
 ## Create your own private fork
 
