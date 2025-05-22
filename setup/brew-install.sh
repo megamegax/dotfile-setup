@@ -69,6 +69,7 @@ main() {
 
     setup-stow
     setup-jvm
+    setup-npm
     setup-oh-my-zsh
     
 # Mac detection: only run Mac-specific things if osascript exists
@@ -94,11 +95,11 @@ setup-stow() {
     echo "Installing GNU Stow"
     brew install stow
     echo "🐐 Stowing dotfiles..."
-   stow -v --dir=$SCRIPT_DIR/configs --target=$HOME zsh git ssh
+   stow -v --dir=$SCRIPT_DIR/configs --target=$HOME zsh git ssh config
    echo "🚀 Stow complete!"
   else
    echo "🐐 Stowing dotfiles..."
-   stow -v --dir=$SCRIPT_DIR/configs --target=$HOME zsh git ssh
+   stow -v --dir=$SCRIPT_DIR/configs --target=$HOME zsh git ssh config
    echo "🚀 Stow complete!"
   fi
 }
@@ -112,7 +113,16 @@ if [ ! -d "$HOME/.oh-my-zsh"  ]; then
     echo "oh my zsh is already installed."
 fi
 }
-
+setup-npm(){
+      (echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> $HOME/.zprofile
+        eval "$(/usr/local/bin/brew shellenv)"
+        # For testing in container
+        echo >> /root/.bashrc
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.bashrc
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  npm install -g neovim
+  npm install -g @mermaid-js/mermaid-cli
+}
 setup-jvm() {
           (echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> $HOME/.zprofile
         eval "$(/usr/local/bin/brew shellenv)"
@@ -129,6 +139,13 @@ setup-jvm() {
     sdk install java 21-tem
   else
     echo "JVM 21 is already installed."
+fi
+# Check if Kotlin is present, install if it's missing
+  if test ! $(which kotlin); then
+    echo "Installing Kotlin..." 
+    sdk install kotlin
+  else
+    echo "Kotlin is already installed."
 fi
 }
 
