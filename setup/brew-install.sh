@@ -54,6 +54,7 @@ prompt_install() {
 main() {
     install_brew
     brew tap sdkman/tap
+    brew tap FelixKratz/formulae
     brew update
     if prompt_install "applications"; then
         install_from_file "$APPS_FILE" "brew install --cask"
@@ -70,7 +71,7 @@ main() {
     setup-stow
     setup-jvm
     setup-npm
-    setup-oh-my-zsh
+    # setup-oh-my-zsh
     
 # Mac detection: only run Mac-specific things if osascript exists
 if command -v osascript >/dev/null 2>&1; then

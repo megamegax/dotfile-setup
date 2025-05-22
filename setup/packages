@@ -18,4 +18,10 @@ hg
 lazygit
 imagemagick
 tmux
-
+fzf
+sketchybar
+starship
+zoxide
+atuin
+zsh
+zsh-autosuggestions
