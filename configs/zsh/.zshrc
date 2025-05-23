@@ -9,15 +9,12 @@ source <(kubectl completion zsh)
 complete -C '/usr/local/bin/aws_completer' aws
 [[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^w' autosuggest-execute
 bindkey '^e' autosuggest-accept
 bindkey '^u' autosuggest-toggle
 bindkey '^L' vi-forward-word
 bindkey '^k' up-line-or-search
 bindkey '^j' down-line-or-search
-
-eval "$(starship init zsh)"
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
@@ -28,11 +25,14 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export NVM_DIR="$HOME/.nvm"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export GRAALVM_HOME=$HOME/.sdkman/candidates/java/21.0.2-graalce
+
 export WORK=$HOME/development/work
 export HOBBY=$HOME/development/hobby
 
 # iOS
 alias ddd='rm -rf $HOME/Library/Developer/Xcode/DerivedData && echo DerivedData deleted'
+
+# Android
 
 # Flutter
 alias fluttergen='dart run build_runner build --delete-conflicting-outputs'
@@ -56,9 +56,9 @@ alias gr='git remote'
 alias gre='git reset'
 
 # Eza
-alias l="eza -l --icons --git -a"
-alias lt="eza --tree --level=2 --long --icons --git"
-alias ltree="eza --tree --level=2  --icons --git"
+alias l="lsd -l --icons --git -a"
+alias lt="lsd --tree --level=2 --long --icons --git"
+alias ltree="lsd --tree --level=2  --icons --git"
 
 # HTTP requests with xh!
 #alias http="xh"
@@ -79,7 +79,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-alias ssl='$(brew --prefix)/opt/openssl@3/bin/openssl'
+
+alias gccp='gcloud container clusters get-credentials gap-production --project ems-gap-production --region europe-west3'
+alias gccs='gcloud container clusters get-credentials gap-staging --project ems-gap-stage --region europe-west3'
 
 
 ### FZF ###
@@ -176,6 +178,7 @@ plugins=(git)
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -192,3 +195,4 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
+eval "$(starship init zsh)"
