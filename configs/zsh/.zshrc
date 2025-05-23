@@ -9,7 +9,6 @@ source <(kubectl completion zsh)
 complete -C '/usr/local/bin/aws_completer' aws
 [[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
 
-
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^w' autosuggest-execute
 bindkey '^e' autosuggest-accept
@@ -80,7 +79,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-alias ssl='/opt/homebrew/opt/openssl@3/bin/openssl'
+alias ssl='$(brew --prefix)/opt/openssl@3/bin/openssl'
 
 
 ### FZF ###
@@ -180,11 +179,10 @@ plugins=(git)
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/development/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/development/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$(brew --prefix)/bin/gcloud/path.zsh.inc' ]; then . '$(brew --prefix)/bin/gcloud/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '$HOME/development/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/development/google-cloud-sdk/completion.zsh.inc'; fi
-
+if [ -f '$(brew --prefix)/bin/gcloud/completion.zsh.inc' ]; then . '$(brew --prefix)/bin/gcloud/completion.zsh.inc'; fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
